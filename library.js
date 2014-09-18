@@ -34,7 +34,7 @@ function Library(numShelves) {
 	//returns number of shelves in library
 	this.numShelves = function() {
 		return shelvesArray.length;
-	}
+	};
 
 	//returns the entire contents of the library as an array of books
 	this.getLibrary = function() {
@@ -43,7 +43,7 @@ function Library(numShelves) {
 			entireLibrary = entireLibrary.concat(shelvesArray[i].getShelfContents());
 		}
 		return entireLibrary;
-	}
+	};
 
 	//returns a string which lists all books in the library
 	this.printLibrary = function() {
@@ -55,17 +55,17 @@ function Library(numShelves) {
 			returnString += shelvesArray[i].printShelfContents() + "\n";
 		}
 		return returnString;
-	}
+	};
 
 	//returns an array which contains the books that are shelved on shelf shelfNumber
 	this.getShelf = function(shelfNumber) {
 		return shelvesArray[shelfNumber];
-	}
+	};
 
 	//returns a string which describes the books on shelf shelfNumber
 	this.printShelf = function(shelfNumber) {
 		return shelvesArray[shelfNumber].printShelfContents();
-	}
+	};
 }
 
 
@@ -92,7 +92,7 @@ function Book(title, author,libs) {
 			currentLibrary.getShelf(shelfNumber).addToShelf(this);
 			return (this.describeBook() + " has been shelved on shelf " + currentShelf + ".");
 		}
-	}
+	};
 
 	//removes book from current shelf, if possible, returns a string describing result
 	this.unshelf = function() {
@@ -105,12 +105,12 @@ function Book(title, author,libs) {
 		else {
 			return (this.describeBook() + " is not on a shelf.");
 		}
-	}
+	};
 
 	//returns a string describing this book
 	this.describeBook= function() {
 		return ('\"' + title + '\"" by ' + author);
-	}
+	};
 }
 
 /*Shelf object variables and methods should NOT be accessed directly. Use the appropriate functions in the book and library objects.*/
@@ -135,12 +135,12 @@ function Shelf(shelfNumber) {
 			}	
 		}		
 		return returnString;
-	}
+	};
 
 	//adds book to shelf
 	this.addToShelf = function(book) {
 		shelfContents.push(book);
-	}
+	};
 
 	//deletes book from shelf, returns true if book is deleted and false if book is not found
 	this.removeFromShelf = function(book) {
@@ -159,10 +159,10 @@ function Shelf(shelfNumber) {
 		} while(indexOfBook < shelfContents.length && !bookFound);
 
 		return bookFound;
-	}
+	};
 
 	//returns contents of this shelf as an array of books
 	this.getShelfContents = function() {
 		return shelfContents;
-	}
+	};
 }
